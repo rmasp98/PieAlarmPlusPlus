@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <object id="TimeLabel" class="GtkLabel">
+        <property name="name">timelabel</property>
+    </object>
+    <!-- <object id="SomeButton" class="GtkButton">
+        <property name="label">Hello, world</property>
+    </object> -->
+</interface>
