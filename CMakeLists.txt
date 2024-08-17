@@ -1,24 +1,14 @@
-cmake_minimum_required(VERSION 3.5.0)
+cmake_minimum_required(VERSION 3.11.0)
 project(PieAlarm)
 
-set(CMAKE_CXX_STANDARD 23)
+# Define if testing should be compiled
+set(PIEALARM_BUILD_TESTS CACHE BOOL true)
 
-find_package(PkgConfig)
 
-pkg_check_modules(GTKMM gtkmm-4.0)
 
-link_directories(
-    ${GTKMM_LIBRARY_DIRS}  )
+add_subdirectory(src)
 
-include_directories(
-    ${GTKMM_INCLUDE_DIRS}  )
-
-add_executable(PieAlarm
-    src/main.cpp
-    src/ui/Window.cpp
-    src/ui/main/MainPage.cpp
-    src/utils/Timer.cpp
-)
-
-target_link_libraries(PieAlarm
-    ${GTKMM_LIBRARIES}  )
+# if ( PIEALARM_BUILD_TESTS )
+   enable_testing()
+   add_subdirectory(tests)
+# endif()

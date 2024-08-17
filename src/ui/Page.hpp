@@ -1,10 +1,10 @@
-#ifndef PIEALARM_PAGE_H
-#define PIEALARM_PAGE_H
+#ifndef PIEALARM_PAGE_HPP
+#define PIEALARM_PAGE_HPP
 
 #include <gtkmm/frame.h>
 
-#include "../utils/Signal.hpp"
 #include "PageEnum.hpp"
+#include "utils/Signal.hpp"
 
 namespace pie_alarm::ui {
 
@@ -32,4 +32,4 @@ class Page : public Gtk::Frame {
 
 }  // namespace pie_alarm::ui
 
-#endif  // PIEALARM_MAINPAGE_H
+#endif  // PIEALARM_MAINPAGE_HPP

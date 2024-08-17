@@ -1,5 +1,5 @@
-#ifndef PIEALARM_TIMER_H
-#define PIEALARM_TIMER_H
+#ifndef PIEALARM_TIMER_HPP
+#define PIEALARM_TIMER_HPP
 
 #include <condition_variable>
 #include <functional>
@@ -10,14 +10,14 @@ namespace pie_alarm::utils {
 
 class Timer {
  public:
-  Timer(std::chrono::milliseconds interval, std::function<void()> callback,
-        bool repeat = true);
+  Timer(std::chrono::milliseconds const& interval,
+        std::function<void()> const& callback, bool repeat = true);
 
   ~Timer();
 
-  void KillTimer() { exit_ = true; }
+  void Kill();
 
-  bool IsTimerRunning() const { return !exit_; }
+  bool IsRunning() const { return !exit_; }
 
  private:
   std::thread thread_;
@@ -28,4 +28,4 @@ class Timer {
 
 }  // namespace pie_alarm::utils
 
-#endif  // PIEALARM_TIMER_H
+#endif  // PIEALARM_TIMER_HPP

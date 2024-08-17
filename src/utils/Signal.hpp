@@ -1,7 +1,7 @@
-#ifndef PIEALARM_SIGNAL_H
-#define PIEALARM_SIGNAL_H
+#ifndef PIEALARM_SIGNAL_HPP
+#define PIEALARM_SIGNAL_HPP
 
-#include <signal.h>
+#include <sigc++/signal.h>
 
 namespace pie_alarm::utils {
 
@@ -15,9 +15,6 @@ class SignalProxy<RETURN(ARGS...)> {
   SignalProxy(const SignalType& signal) : signal_(signal) {}
 
   using slot_type = sigc::slot<RETURN(ARGS...)>;
-  sigc::connection Connect(const slot_type& slot_) {
-    return signal_.connect(slot_);
-  }
   sigc::connection Connect(slot_type&& slot_) { return signal_.connect(slot_); }
 
  private:
@@ -26,4 +23,4 @@ class SignalProxy<RETURN(ARGS...)> {
 
 }  // namespace pie_alarm::utils
 
-#endif  // PIEALARM_SIGNAL_H
+#endif  // PIEALARM_SIGNAL_HPP

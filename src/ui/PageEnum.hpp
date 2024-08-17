@@ -1,5 +1,5 @@
-#ifndef PIEALARM_PAGEENUM_H
-#define PIEALARM_PAGEENUM_H
+#ifndef PIEALARM_PAGEENUM_HPP
+#define PIEALARM_PAGEENUM_HPP
 
 namespace pie_alarm::ui {
 
@@ -9,4 +9,4 @@ enum class PageEnum {
 
 }
 
-#endif  // PIEALARM_PAGEENUM_H
+#endif  // PIEALARM_PAGEENUM_HPP

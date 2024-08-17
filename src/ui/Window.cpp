@@ -14,7 +14,7 @@ Window::Window() : cssProvider_(Gtk::CssProvider::create()) {
       get_display(), cssProvider_, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
   // TODO: figure out how to do paths properly
-  cssProvider_->load_from_path("../src/ui/styles/default.css");
+  cssProvider_->load_from_path("../../src/ui/styles/default.css");
 
   page_.SignalBack().Connect(sigc::mem_fun(*this, &Window::OnButtonClicked));
   set_child(page_);

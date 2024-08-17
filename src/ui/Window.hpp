@@ -1,5 +1,5 @@
-#ifndef PIEALARM_WINDOW_H
-#define PIEALARM_WINDOW_H
+#ifndef PIEALARM_WINDOW_HPP
+#define PIEALARM_WINDOW_HPP
 
 #include <gtkmm/cssprovider.h>
 #include <gtkmm/window.h>
@@ -22,4 +22,4 @@ class Window : public Gtk::Window {
 
 }  // namespace pie_alarm::ui
 
-#endif  // PIEALARM_WINDOW_H
+#endif  // PIEALARM_WINDOW_HPP
