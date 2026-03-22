@@ -1,5 +1,6 @@
-include(FetchContent)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+include(FetchContent)
 FetchContent_Declare(
     Catch2
   GIT_REPOSITORY https://github.com/catchorg/Catch2.git
@@ -14,6 +15,7 @@ add_executable(
   utils/TimerTest.cpp
   utils/SchedulerTest.cpp
   alarm/AlarmTest.cpp
+  alarm/ManagerTest.cpp
 )
 
 target_link_libraries(unit_tests

@@ -11,7 +11,7 @@ namespace pie_alarm::ui {
 class Page : public Gtk::Frame {
  public:
   Page() = default;
-  virtual ~Page() = default;
+  ~Page() override = default;
 
   using SignalEvent = pie_alarm::utils::SignalProxy<void()>;
   SignalEvent SignalBack() { return SignalEvent(backSignal_); }

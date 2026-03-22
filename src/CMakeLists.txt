@@ -1,7 +1,7 @@
 
-find_package(PkgConfig)
+find_package(PkgConfig REQUIRED)
 
-pkg_check_modules(GTKMM gtkmm-4.0)
+pkg_check_modules(GTKMM REQUIRED gtkmm-4.0)
 
 include(FetchContent)
 
@@ -16,8 +16,11 @@ FetchContent_MakeAvailable(json)
 add_library(LibPieAlarm
     ui/Window.cpp
     ui/main/MainPage.cpp
+    ui/alarm/AlarmListPage.cpp
+    ui/alarm/AlarmItem.cpp
 
     alarm/Alarm.cpp
+    alarm/Manager.cpp
 
     utils/Scheduler.cpp
     utils/Timer.cpp

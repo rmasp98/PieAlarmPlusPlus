@@ -15,7 +15,7 @@ class Scheduler {
   using TimePoint = std::chrono::time_point<std::chrono::system_clock>;
 
   Scheduler() = default;
-  ~Scheduler() = default;
+  virtual ~Scheduler() = default;
 
   std::unordered_set<int64_t> GetRunningJobs() const;
   virtual int64_t AddJob(TimePoint const& time,

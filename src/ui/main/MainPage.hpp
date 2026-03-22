@@ -1,8 +1,7 @@
 #ifndef PIEALARM_MAINPAGE_HPP
 #define PIEALARM_MAINPAGE_HPP
 
-// #include <gtkmm/button.h>
-#include <gtkmm/label.h>
+#include <gtkmm/builder.h>
 
 #include "ui/Page.hpp"
 #include "utils/Timer.hpp"
@@ -12,13 +11,14 @@ namespace pie_alarm::ui {
 class MainPage : public Page {
  public:
   MainPage();
-  virtual ~MainPage() = default;
+  ~MainPage() override = default;
 
  protected:
   void UpdateTime();
+  void OnAlarmClicked();
 
  private:
-  Gtk::Label* timeLabel_;
+  Glib::RefPtr<Gtk::Builder> builder_;
   utils::Timer timer_;
 };
 

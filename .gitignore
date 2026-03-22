@@ -1,8 +1,13 @@
 #build directory
 build/
 
-# vscode config directory
-.vscode/
+# clang
+.cache/
+.clang-format
+
+#sublime stuff
+*.sublime-project
+*.sublime-workspace
 
 # Prerequisites
 *.d

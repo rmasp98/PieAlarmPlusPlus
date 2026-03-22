@@ -5,6 +5,7 @@ namespace pie_alarm::ui {
 
 enum class PageEnum {
   Main,
+  AlarmList,
 };
 
 }

@@ -14,8 +14,8 @@ class SignalProxy<RETURN(ARGS...)> {
   using SignalType = sigc::signal<RETURN(ARGS...)>;
   SignalProxy(const SignalType& signal) : signal_(signal) {}
 
-  using slot_type = sigc::slot<RETURN(ARGS...)>;
-  sigc::connection Connect(slot_type&& slot_) { return signal_.connect(slot_); }
+  using SlotType = sigc::slot<RETURN(ARGS...)>;
+  sigc::connection Connect(SlotType&& slot_) { return signal_.connect(slot_); }
 
  private:
   SignalType signal_;

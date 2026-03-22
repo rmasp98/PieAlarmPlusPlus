@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-    <object id="TimeLabel" class="GtkLabel">
-        <property name="name">timelabel</property>
-    </object>
-    <!-- <object id="SomeButton" class="GtkButton">
-        <property name="label">Hello, world</property>
-    </object> -->
+	<object id="Container" class="GtkBox">
+		<property name="orientation">vertical</property>
+		<child>
+			<object id="TimeLabel" class="GtkLabel">
+				<property name="name">timelabel</property>
+			</object>
+		</child>
+		<child>
+			<object id="AlarmButton" class="GtkButton">
+				<property name="label">No Alarms</property>
+			</object>
+		</child>
+	</object>
 </interface>

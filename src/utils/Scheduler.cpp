@@ -5,17 +5,17 @@ namespace pie_alarm::utils {
 std::unordered_set<int64_t> Scheduler::GetRunningJobs() const {
   std::unique_lock<std::mutex> lock(mutex_);
   std::unordered_set<int64_t> keys;
-  for (auto const& job : jobs_) {
-    keys.insert(job.first);
+  for (auto const& [jobId, _] : jobs_) {
+    keys.insert(jobId);
   }
   return keys;
 }
 
 int64_t Scheduler::AddJob(TimePoint const& time,
                           std::function<void()> const& callback) {
-  auto id = idCounter_++;
+  auto const id = idCounter_++;
 
-  auto timeUntil = std::chrono::duration_cast<std::chrono::milliseconds>(
+  auto const timeUntil = std::chrono::duration_cast<std::chrono::milliseconds>(
       time - std::chrono::system_clock::now());
 
   {
@@ -35,13 +35,8 @@ void Scheduler::RemoveJob(int64_t id) {
 
 void Scheduler::ClearFinishedJobs() {
   std::unique_lock<std::mutex> lock(mutex_);
-  for (auto job = jobs_.begin(); job != jobs_.end();) {
-    if (!job->second.IsRunning()) {
-      job = jobs_.erase(job);
-    } else {
-      ++job;
-    }
-  }
+  std::erase_if(jobs_,
+                [](auto const& elem) { return !elem.second.IsRunning(); });
 }
 
 }  // namespace pie_alarm::utils
